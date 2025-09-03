@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meu Universo</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Estilos mínimos para Q&A */
+    .qa-response {
+      margin-top: 10px;
+      padding: 10px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 8px;
+      display: none;
+      color: #fff;
+    }
+
+    .qa-response.show {
+      display: block;
+    }
+
+    .qa-options button {
+      margin: 5px 0;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #444;
+      color: #fff;
+    }
+
+    .qa-options button:hover {
+      background: #666;
+    }
+
+    /* Player Spotify */
+    .music-player {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Fundo com estrelas -->
+  <div class="stars"></div>
+  <div class="twinkle"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand">🌌 Meu Universo</div>
+    <nav class="nav">
+      <a href="#fotos">Fotos</a>
+      <a href="#textos">Textos</a>
+      <a href="#qa">Q&A</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Você é o meu cosmos favorito</h1>
+      <p>Um cantinho espacial feito só pra nós ✨</p>
+      <a class="btn" href="#fotos">Ver constelação de fotos</a>
+    </section>
+
+    <!-- “Planetas” com fotos -->
+    <section id="fotos" class="gallery">
+      <article class="orb">
+        <img src="img/sara01.jpeg" alt="Foto dela 1" />
+        <div class="caption">Meu sol de todo dia</div>
+      </article>
+      <article class="orb">
+        <img src="img/sara02.jpg" alt="Foto dela 2" />
+        <div class="caption">Órbita preferida</div>
+      </article>
+      <article class="orb">
+        <img src="img/sara03.jpg" alt="Foto dela 3" />
+        <div class="caption">Brilho que encanta</div>
+      </article>
+      <article class="orb">
+        <img src="img/sara04.jpg" alt="Foto dela 4" />
+        <div class="caption">Minha estrela-guia</div>
+      </article>
+    </section>
+
+    <!-- Textos -->
+    <section id="textos" class="texts">
+      <h2>Minhas palavras pra você</h2>
+      <p>Desde que te encontrei, todo o meu céu ganhou novas cores.</p>
+      <p>Você é a constelação que eu mais amo observar, todos os dias.</p>
+      <p>Este site é um pedacinho do que sinto por você meu solzinho. 💜</p>
+    </section>
+
+    <!-- Q&A romântico -->
+    <section id="qa" class="qa">
+      <h2>Perguntas & Respostas</h2>
+      <div class="qa-options">
+        <button data-answer="Uma simples foto no Twitter mudou minha vida... foi lá que eu te encontrei!">
+          Onde nós nos conhecemos?
+        </button>
+        <button data-answer="foi no dia 15 de junho. Estávamos assistindo série no Rave e você falava com tanta frequência que me adorava, mas eu sabia que, no fundo, queria dizer que me amava.">
+          Como foi o primeiro: "Eu te amo"?
+        </button>
+        <button data-answer="Porque seu sorriso ilumina tudo ao redor, literalmente minha estrela-guia.">
+          Por que eu gosto tanto de você?
+        </button>
+        <button data-answer="Eu imagino nós dois conquistando tudo juntos, lado a lado.">
+          Como eu vejo nosso futuro?
+        </button>
+      </div>
+      <div class="qa-response"></div>
+    </section>
+
+    <!-- Player Spotify -->
+    <div class="music-player">
+      <iframe 
+        src="https://open.spotify.com/embed/track/3FeVmId7tL5YN8B7R3imoM?utm_source=generator" 
+        width="300" height="80" frameborder="0" 
+        allowtransparency="true" allow="encrypted-media">
+      </iframe>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    Feito com 💜 por mim, para você — <span class="year"></span>
+  </footer>
+
+  <script>
+    // Atualiza ano no rodapé
+    document.querySelector('.year').textContent = new Date().getFullYear();
+
+    // Controle Q&A
+    const qaOptions = document.querySelectorAll('.qa-options button');
+    const qaResponse = document.querySelector('.qa-response');
+
+    qaOptions.forEach(btn => {
+      btn.addEventListener("click", () => {
+        qaResponse.textContent = btn.getAttribute("data-answer");
+        qaResponse.classList.add("show");
+      });
+    });
+  </script>
+</body>
+</html>
